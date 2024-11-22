@@ -3,25 +3,27 @@
 import string from "String";
 import { print } from "String" under str;
 import {envVar} from "System" under sys;
+import { Now } from "DateTime" under dt;
+import DateTime from "DateTime";
 
 enum LogLevel {
-  Info,
   Debug,
+  Info,
   Warn,
-  Error
+  Error,
 };
 
 private string logLevelToString(LogLevel level) {
   if level == LogLevel.Info {
-    return "INFO";
+    return `INFO`;
   } else if level == LogLevel.Debug {
-    return "DEBUG";
+    return `DEBUG`;
   } else if level == LogLevel.Warn {
-    return "WARN";
+    return `WARNING`;
   } else if level == LogLevel.Error {
-    return "ERROR";
+    return `ERROR`;
   } else {
-    return "UNKNOWN";
+    return `UNKNOWN`;
   };
 };
 
@@ -30,7 +32,7 @@ private LogLevel logLevelFromString(string level) {
     return LogLevel.Info;
   } else if level == "DEBUG" {
     return LogLevel.Debug;
-  } else if level == "WARN" {
+  } else if level == "WARNING" {
     return LogLevel.Warn;
   } else if level == "ERROR" {
     return LogLevel.Error;
@@ -49,7 +51,10 @@ class Logger {
 
   public bool log(LogLevel level, string message) {
     if level >= my.level {
-      str.print(`[{logLevelToString(level)}] {message}\n`);
+      string lls = logLevelToString(level);
+      let now = dt.Now();
+      string date_string = `{now.getYear()}-{now.getMonth()}-{now.getDay()} {now.getHour()}:{now.getMinute()}:{now.getSecond()}`;
+      str.print(`[{date_string}] [{lls}] {message}\n`);
       return true;
     };
 
