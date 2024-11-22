@@ -47,9 +47,13 @@ class Logger {
     panic("Logger is a singleton and should not be instantiated");
   };
 
-  public void log(LogLevel level, string message) {
-    if level >= my.level
-      str.print("[" + logLevelToString(level) + "] " + message);
+  public bool log(LogLevel level, string message) {
+    if level >= my.level {
+      str.print`[{logLevelToString(level)}] {message}\n`;
+      return true;
+    };
+
+    return false;
   };
 };
 
@@ -64,4 +68,20 @@ export Logger getLogger() {
     );
   };
   return logger;
+};
+
+export void info(string message) {
+  getLogger().log(LogLevel.Info, message);
+};
+
+export void debug(string message) {
+  getLogger().log(LogLevel.Debug, message);
+};
+
+export void warning(string message) {
+  getLogger().log(LogLevel.Warn, message);
+};
+
+export void error(string message) {
+  getLogger().log(LogLevel.Error, message);
 };
