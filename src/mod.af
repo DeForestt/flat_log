@@ -49,7 +49,7 @@ class Logger {
 
   public bool log(LogLevel level, string message) {
     if level >= my.level {
-      str.print`[{logLevelToString(level)}] {message}\n`;
+      str.print(`[{logLevelToString(level)}] {message}\n`);
       return true;
     };
 
@@ -70,18 +70,18 @@ export Logger getLogger() {
   return logger;
 };
 
-export void info(string message) {
-  getLogger().log(LogLevel.Info, message);
+export bool info(string message) {
+  return getLogger().log(LogLevel.Info, message);
 };
 
-export void debug(string message) {
-  getLogger().log(LogLevel.Debug, message);
+export bool debug(string message) {
+  return getLogger().log(LogLevel.Debug, message);
 };
 
-export void warning(string message) {
-  getLogger().log(LogLevel.Warn, message);
+export bool warning(string message) {
+  return getLogger().log(LogLevel.Warn, message);
 };
 
-export void error(string message) {
-  getLogger().log(LogLevel.Error, message);
+export bool error(string message) {
+  return getLogger().log(LogLevel.Error, message);
 };
