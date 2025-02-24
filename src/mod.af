@@ -64,7 +64,7 @@ class Logger {
 
 mutable Logger logger = NULL;
 
-export Logger getLogger() {
+export fn getLogger() {
   if logger == NULL {
     logger = malloc(Logger);
     adr level = sys.envVar("LOG_LEVEL");
@@ -75,18 +75,18 @@ export Logger getLogger() {
   return logger;
 };
 
-export bool info(string message) {
+export fn info(string message) {
   return getLogger().log(LogLevel.Info, message);
 };
 
-export bool debug(string message) {
+export fn debug(string message) {
   return getLogger().log(LogLevel.Debug, message);
 };
 
-export bool warning(string message) {
+export fn warning(string message) {
   return getLogger().log(LogLevel.Warn, message);
 };
 
-export bool error(string message) {
+export fn error(string message) {
   return getLogger().log(LogLevel.Error, message);
 };
