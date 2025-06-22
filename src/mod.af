@@ -75,18 +75,22 @@ export fn getLogger() {
   return logger;
 };
 
-export fn info(string message) {
-  return getLogger().log(LogLevel.Info, message);
+types(T)
+export fn info(const T message) {
+  return getLogger().log(LogLevel.Info, `{message}`);
 };
 
-export fn debug(string message) {
-  return getLogger().log(LogLevel.Debug, message);
+types(T)
+export fn debug(const T message) {
+  return getLogger().log(LogLevel.Debug, `{message}`);
 };
 
-export fn warning(string message) {
-  return getLogger().log(LogLevel.Warn, message);
+types(T)
+export fn warning(const T message) {
+  return getLogger().log(LogLevel.Warn, `{message}`);
 };
 
-export fn error(string message) {
-  return getLogger().log(LogLevel.Error, message);
+types(T)
+export fn error(const T message) {
+  return getLogger().log(LogLevel.Error, `{message}`);
 };
