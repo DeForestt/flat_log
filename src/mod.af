@@ -5,8 +5,8 @@ import { print } from "String" under str;
 import {envVar} from "System" under sys;
 import { Now } from "DateTime" under dt;
 import DateTime from "DateTime";
-import LogLevel, Logger from "./src/Logger";
-import { getLogger } from "./src/Logger" under logger;
+import LogLevel, Logger from "./Logger";
+import { getLogger } from "./Logger" under logger;
 
 types(T)
 export fn info(const T message) {
