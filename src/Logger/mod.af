@@ -63,7 +63,7 @@ class Logger {
 
 mutable Logger logger = NULL;
 
-export fn getLogger() {
+export fn getLogger() -> Logger {
   if logger == NULL {
     logger = malloc(Logger);
     adr level = sys.envVar("LOG_LEVEL");
