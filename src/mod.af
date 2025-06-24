@@ -8,18 +8,22 @@ import DateTime from "DateTime";
 import LogLevel, Logger from "./Logger";
 import { getLogger } from "./Logger" under logger;
 
-export fn info(const string message) {
+types(T)
+export fn info(const T message) {
   return logger.getLogger().log(LogLevel.Info, message);
 };
 
-export fn debug(const string message) {
+types(T)
+export fn debug(const T message) {
   return logger.getLogger().log(LogLevel.Debug, message);
 };
 
-export fn warning(const string message) {
+types(T)
+export fn warning(const T message) {
   return logger.getLogger().log(LogLevel.Warn, message);
 };
 
-export fn error(const string message) {
+types(T)
+export fn error(const T message) {
   return logger.getLogger().log(LogLevel.Error, message);
 };
