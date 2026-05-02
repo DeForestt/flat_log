@@ -23,3 +23,8 @@ export fn warning(const string message) {
 export fn error(const string message) {
   return logger.getLogger().log(LogLevel.Error, message);
 };
+
+fn main() {
+  info("test");
+  return 0;
+};
