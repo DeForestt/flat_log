@@ -1,9 +1,10 @@
 .needs <std>
 
 import string from "String";
-import {info} from "../mod.af" under log;
+import LogLevel from "../Logger";
+import {getLogger} from "../Logger" under logger;
 
 int main() {
-  log.info("This is a test");
+	logger.getLogger().log(LogLevel.Info, "This is a test");
 	return 0;
 };

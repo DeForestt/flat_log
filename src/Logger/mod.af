@@ -41,11 +41,11 @@ private LogLevel logLevelFromString(string level) {
 };
 
 // Logger singleton
-class Logger {
-  public mutable LogLevel level;
+shared class Logger {
+  public mutable LogLevel level = LogLevel.Info;
   
-  Logger init() {
-    panic("Logger is a singleton and should not be instantiated");
+  private fn init() -> Self {
+    return my;
   };
 
   public bool log(LogLevel level, string message) {
@@ -65,7 +65,7 @@ mutable Logger logger = NULL;
 
 export fn getLogger() -> Logger {
   if logger == NULL {
-    logger = create(Logger);
+    logger = new Logger();
     adr level = sys.envVar("LOG_LEVEL");
     logger.level = logLevelFromString(
       if level == NULL "INFO" else level
